@@ -4,12 +4,14 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
+import { TailwindIndicator } from '@/components/dev/TailwindIndicator';
 import { MainProvider } from '@/components/providers/MainProvider';
+import { Toaster } from '@/components/providers/ToastProvider';
 import { MainLayout } from '@/components/templates/MainLayout';
 
 import { cn } from '@/lib/utils';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-primary' });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Home page | Nextjs boilerplate',
@@ -23,13 +25,15 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
-      <body className={cn(inter.variable, 'font-primary')} suppressHydrationWarning>
+    <html lang="en" className={cn('bg-white text-slate-900 antialiased', inter.className)}>
+      <body className="min-h-screen bg-white antialiased" suppressHydrationWarning>
         <MainProvider>
           <MainLayout>
             <main>{children}</main>
           </MainLayout>
         </MainProvider>
+        <TailwindIndicator />
+        <Toaster />
       </body>
     </html>
   );

@@ -6,46 +6,46 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:storybook/recommended',
+    'plugin:storybook/recommended'
   ],
   plugins: [
     'react',
     '@typescript-eslint',
     'react-hooks',
     'eslint-plugin-import-helpers',
-    'testing-library',
+    'testing-library'
   ],
   overrides: [
     // Only uses Testing Library lint rules in test files
     {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: ['plugin:testing-library/react'],
+      extends: ['plugin:testing-library/react']
     },
     {
       files: ['./prettier.config.js'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off',
-      },
-    },
+        '@typescript-eslint/no-var-requires': 'off'
+      }
+    }
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 11,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   env: {
     es6: true,
     browser: true,
     jest: true,
-    node: true,
+    node: true
   },
   rules: {
     'react-hooks/rules-of-hooks': 2,
@@ -62,25 +62,25 @@ module.exports = {
           '/^@/styles/',
           '/^@/components/',
           '/^@/lib/',
-          ['parent', 'sibling', 'index'],
+          ['parent', 'sibling', 'index']
         ],
         alphabetize: {
           order: 'asc',
-          ignoreCase: true,
-        },
-      },
+          ignoreCase: true
+        }
+      }
     ],
     '@typescript-eslint/no-unused-vars': [
       2,
       {
-        argsIgnorePattern: '^_',
-      },
+        argsIgnorePattern: '^_'
+      }
     ],
     'no-console': [
       2,
       {
-        allow: ['warn', 'error'],
-      },
-    ],
-  },
+        allow: ['warn', 'error']
+      }
+    ]
+  }
 };

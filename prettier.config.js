@@ -16,9 +16,9 @@ module.exports = {
       parsers: {
         typescript: {
           ...pluginSortImports.parsers.typescript,
-          parse: pluginTailwindcss.parsers.typescript.parse,
-        },
-      },
-    },
-  ],
+          parse: pluginTailwindcss.parsers.typescript.parse
+        }
+      }
+    }
+  ]
 };
