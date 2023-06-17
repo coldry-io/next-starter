@@ -1,6 +1,6 @@
 import React from 'react';
-import type { Preview } from '@storybook/react';
 import * as NextImage from 'next/image';
+import type { Preview } from '@storybook/react';
 
 import '../src/styles/globals.css';
 
@@ -8,7 +8,7 @@ const OriginalNextImage = NextImage.default;
 
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
-  value: (props) => <OriginalNextImage {...props} unoptimized />
+  value: (props) => <OriginalNextImage {...props} unoptimized />,
 });
 
 const preview: Preview = {
@@ -17,10 +17,13 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/
-      }
-    }
-  }
+        date: /Date$/,
+      },
+    },
+    backgrounds: {
+      default: 'light',
+    },
+  },
 };
 
 // This is the place responsible for grouping all decorators from the storybook app
